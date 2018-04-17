@@ -1,1 +1,1 @@
-true ^ prepareAppForRenewal();
+prepareAppForRenewal();
