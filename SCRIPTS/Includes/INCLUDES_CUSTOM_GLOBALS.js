@@ -5,11 +5,11 @@ LICENSESTATE = "MI";
 //showDebug = false or 0 - no popups, no writing to bizserver log unless changed within script code itself in branches.
 //showDebug = true or 1 - pop-ups only
 //showDebug = 2 - log only
-//showDebug = 3 - pop-up and logging
+//showDebug = 1 - pop-up and logging
 //caution, logging levels cause that log to get BIG and scripting to run SLOW.
 
 if(matches(currentUserID, "ADMIN", "CGODWIN", "AUSTINV","HOWER")){//user names MUST be in ALL CAPS!
-	showDebug = 3; 
+	showDebug = 1; 
 }else{
 	showDebug = false;
 }
