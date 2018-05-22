@@ -185,7 +185,7 @@ function updateCert(updateType){
 			updateAppStatus("Closed");
 			
 			break;
-case "INTERUPDATE":
+		case "INTERUPDATE":
 			
 			if(AInfo["Update FMC Status"] == "CHECKED"){
 				editRefLicProfAttribute(existingCarrierNum, "FEDERAL MOTOR CARRIER STATUS", AInfo["New FMC Status"]);
@@ -217,5 +217,4 @@ case "INTERUPDATE":
 		default: break;
 	}
 	modifyRefLPAndSubTran(pId, cLic);
-}
 }
