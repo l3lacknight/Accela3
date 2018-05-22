@@ -185,25 +185,29 @@ function updateCert(updateType){
 			updateAppStatus("Closed");
 			
 			break;
-		case "INTERUPDATE":
+case "INTERUPDATE":
 			
 			if(AInfo["Update FMC Status"] == "CHECKED"){
 				editRefLicProfAttribute(existingCarrierNum, "FEDERAL MOTOR CARRIER STATUS", AInfo["New FMC Status"]);
 				editRefLicProfAttribute(existingCarrierNum, "FED MOTOR CARRIER STATUS DATE", dateAdd(AInfo["FMC Effective Date"], 0));
 				//get refLp after attr updates
 				cLic = getRefLicenseProf(existingCarrierNum);
+				logDebug("Update FMC Status Checked ");
 			}
 			
 			if(AInfo["Update UCR Status"] == "CHECKED"){
 				editRefLicProfAttribute(existingCarrierNum, "INTERSTATE UCR STATUS", AInfo["New UCR Status"]);
+				editRefLicProfAttribute(existingCarrierNum, "INTERSTATE UCR EXPIRATION DATE", AInfo["UCR Expiration Date"]);
 				editRefLicProfAttribute(existingCarrierNum, "INTERSTATE UCR STATUS DATE", AInfo["UCR Effective Date"]);
-				editRefLicProfAttribute(existingCarrierNum, "INTERSTATE UCR EXPIRATION DATE", AInfo["UCR Exipration Date"]);
+				
 				//get refLp after attr updates
 				cLic = getRefLicenseProf(existingCarrierNum);
+				logDebug("Update UCR Status Checked ");
 			}
 			
 			if(AInfo["Update FMC Number"] == "CHECKED"){
 				cLic.setAddress3(AInfo["New FMC Number"]);
+				logDebug("Update FMC NUMBER Checked ");
 			}
 			
 			//close amendment
@@ -213,4 +217,5 @@ function updateCert(updateType){
 		default: break;
 	}
 	modifyRefLPAndSubTran(pId, cLic);
+}
 }
