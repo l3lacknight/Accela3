@@ -230,7 +230,7 @@ function mainProcess(){
 										capCount++;
 									}
 									
-									if(newAppStatus.length > 0 && newExpStatus.length == 0){// update CAP status only
+									if(newAppStatus.length > ;0 && newExpStatus.length == 0){// update CAP status only
 										updateAppStatus(newAppStatus, "updated by batch script", thisCapModel);
 										updateLp = true;
 										capCount++;
