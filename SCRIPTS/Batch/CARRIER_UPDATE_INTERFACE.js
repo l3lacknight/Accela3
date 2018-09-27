@@ -13,7 +13,8 @@
 | START: USER CONFIGURABLE PARAMETERS
 |
 /------------------------------------------------------------------------------------------------------*/
-maxSeconds = 300;
+maxSeconds = 30000;
+var timeExpired = false;
 emailText = "";
 message = "";
 br = "<br>";
@@ -133,13 +134,6 @@ logDebug("Date Range -- fromDate: " + fromDate + ", toDate: " + toDate)
 
 var startTime = startDate.getTime(); // Start timer
 var systemUserObj = aa.person.getUser("ADMIN").getOutput();
-
-appGroup = appGroup == "" ? "*" : appGroup;
-appTypeType = appTypeType == "" ? "*" : appTypeType;
-appSubtype = appSubtype == "" ? "*" : appSubtype;
-appCategory = appCategory == "" ? "*" : appCategory;
-var appType = appGroup + "/" + appTypeType + "/" + appSubtype + "/" + appCategory;
-
 /*------------------------------------------------------------------------------------------------------/
 | <===========Main=Loop================>
 |
