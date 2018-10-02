@@ -260,10 +260,10 @@ function mainProcess(){
 										//AM-138 End
 										}	
 										if(gotUCRStatus && gotUCRExpDate && gotAutoTransport){
-											logDebug(br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear);
+											logDebug(br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear+ "AUTO Transport Flag" + autoTransport);
 
 											//AM-138 Start
-											if(autoTransport == 'Yes'){
+											if(upper(autoTransport) == 'YES'){
 												logDebug(br+"CVED#: "+thisAltId+" has Auto Transport")
 											}					
 											//AM-138 End
@@ -272,7 +272,7 @@ function mainProcess(){
 									}
 									
 									//UCR auto renewal
-									if(oppType == "General Commodities" && statusUCR == "Active" && (autoTransport != 'Yes' && autoTransport != 'YES' && autoTransport != 'yes')){
+									if(oppType == "General Commodities" && statusUCR == "Active" && (upper(autoTransport) != 'YES' )){
 										//update Certificate of Authority Renewal Info tab
 										licEditExpInfo("Active","12/31/"+(thisYear+1));
 										capCount++;
