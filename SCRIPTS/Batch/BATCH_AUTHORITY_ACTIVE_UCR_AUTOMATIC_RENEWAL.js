@@ -13,7 +13,7 @@
 | START: USER CONFIGURABLE PARAMETERS
 |
 /------------------------------------------------------------------------------------------------------*/
-maxSeconds = 300;
+maxSeconds = 30000;
 emailText = "";
 message = "";
 br = "<br>";
@@ -112,7 +112,7 @@ var appSubtype = "Certificate of Authority";
 var appCategory = "NA";
 var lookAheadDays = aa.env.getValue("lookAheadDays"); // Number of days from today
 var daySpan = aa.env.getValue("daySpan"); // Days to search (6 if run weekly, 0 if daily, etc.)
-var expStatus = "Active"; //   test for this expiration status
+var expStatus = "About to Expire"; //   test for this expiration status
 var newExpStatus = "Active"; //   update to this expiration status
 var appStatus = getParam("appStatus");
 var skipAppStatusArray = getParam("skipAppStatus").split(","); //   Skip records with one of these application statuses
