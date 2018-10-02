@@ -272,7 +272,7 @@ function mainProcess(){
 									}
 									
 									//UCR auto renewal
-									if(oppType == "General Commodities" && statusUCR == "Active" && autoTransport != 'Yes'){
+									if(oppType == "General Commodities" && statusUCR == "Active" && (autoTransport != 'Yes' && autoTransport != 'YES' && autoTransport != 'yes')){
 										//update Certificate of Authority Renewal Info tab
 										licEditExpInfo("Active","12/31/"+(thisYear+1));
 										capCount++;
