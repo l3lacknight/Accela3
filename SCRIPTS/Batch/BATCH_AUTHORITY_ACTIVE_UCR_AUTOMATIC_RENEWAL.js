@@ -256,15 +256,16 @@ function mainProcess(){
 										//AM-138 Start
 										if(!gotAutoTransport && matches(""+thisAttr.getAttributeName(),"AUTO TRANSPORT")){
 											autoTransport = ""+thisAttr.getAttributeValue();
+											autoTransport = autoTransport.toUpperCase();
 											gotAutoTransport = true;
 										//AM-138 End
 										}	
 										if(gotUCRStatus && gotUCRExpDate && gotAutoTransport){
-											logDebug(br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear+ "AUTO Transport Flag" + autoTransport);
+											logDebug(br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear+ "Auto Transport=" + autoTransport);
 
 											//AM-138 Start
-											if(upper(autoTransport) == 'YES'){
-												logDebug(br+"CVED#: "+thisAltId+" has Auto Transport")
+											if(autoTransport == 'YES' || autoTransport == 'Y'){
+												logDebug(br+"CVED#: "+thisAltId+" has Auto Transport" +br)
 											}					
 											//AM-138 End
 											break;
@@ -272,7 +273,7 @@ function mainProcess(){
 									}
 									
 									//UCR auto renewal //
-									if(oppType == "General Commodities" && statusUCR == "Active" && (upper(autoTransport) != 'YES' )){
+									if(oppType == "General Commodities" && statusUCR == "Active" && autoTransport != 'YES' && autoTransport != 'Y'){
 										//update Certificate of Authority Renewal Info tab
 										licEditExpInfo("Active","12/31/"+(thisYear+1));
 										capCount++;
