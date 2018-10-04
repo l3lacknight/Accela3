@@ -112,7 +112,7 @@ var appSubtype = "Certificate of Authority";
 var appCategory = "NA";
 var lookAheadDays = aa.env.getValue("lookAheadDays"); // Number of days from today
 var daySpan = aa.env.getValue("daySpan"); // Days to search (6 if run weekly, 0 if daily, etc.)
-var expStatus = "About to Expire"; //   test for this expiration status
+var expStatus = "Active"; //   test for this expiration status
 var newExpStatus = "Active"; //   update to this expiration status
 var appStatus = getParam("appStatus");
 var skipAppStatusArray = getParam("skipAppStatus").split(","); //   Skip records with one of these application statuses
@@ -261,7 +261,7 @@ function mainProcess(){
 										//AM-138 End
 										}	
 										if(gotUCRStatus && gotUCRExpDate && gotAutoTransport){
-											logDebug(br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear+ "Auto Transport=" + autoTransport);
+											logDebug(br+br+"Found "+oppType+" carrier, CVED#: "+thisAltId+" With UCR Status: "+statusUCR+" and UCR Expiration Year: "+ucrExpYear+ "Auto Transport=" + autoTransport);
 
 											//AM-138 Start
 											if(autoTransport == 'YES' || autoTransport == 'Y'){
