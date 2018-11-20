@@ -78,6 +78,7 @@ function createRefLicProfFromLicProfMotorCarrier(){
 	newLic.setMaskedSsn(licProfScriptModel.getMaskedSsn());
 	//newLic.setLicenseBoard(licProfScriptModel.getLicenseBoard());
 	newLic.setBusinessName2(licProfScriptModel.getBusName2());
+	newLic.setComment(licProfScriptModel.getComment());
 	
 	/* ASI to Ref LP object*/
 	if(AInfo["Worker's Compensation Exempt"] != null){
