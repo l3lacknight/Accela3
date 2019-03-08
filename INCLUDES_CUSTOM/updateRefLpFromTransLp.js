@@ -81,7 +81,7 @@ function updateRefLpFromTransLp(){
 			thisAttr = attrList[i]
 			name = ""+thisAttr.getAttributeName(); val="";
 			// Exclude fields updated by ASI
-			if( !matches(name,"AUTO TRANSPORT","HAZ MAT CARRIER", "HOUSEHOLD GOODS AUTHORITY", "PORTABLE STORAGE UNITS", "CONTINUOUS CONTRACT")) {
+			if( !matches(name,"AUTO TRANSPORT","HAZ MAT CARRIER", "HOUSEHOLD GOODS AUTHORITY", "PORTABLE STORAGE UNITS", "CONTINUOUS CONTRACT", "NON CONSENT TOWING")) {
 				val = ""+thisAttr.getAttributeValue()
 				editRefLicProfAttribute(rlpId,name,val == "null" ? null : val)
 			}
@@ -93,6 +93,7 @@ function updateRefLpFromTransLp(){
 		editRefLicProfAttribute(rlpId,"HOUSEHOLD GOODS AUTHORITY",AInfo["Household Goods Authority"])
 		editRefLicProfAttribute(rlpId,"CONTINUOUS CONTRACT",AInfo["Continuous Contract"])
 		editRefLicProfAttribute(rlpId,"PORTABLE STORAGE UNITS",AInfo["Portable Storage Units"]);
+			editRefLicProfAttribute(rlpId,"NON CONSENT TOWING",AInfo["Non Consent Towing"]);
 		
 		newLic = getRefLicenseProf(existingCarrierNum);
 		modifyRefLPAndSubTran(capId, newLic)
