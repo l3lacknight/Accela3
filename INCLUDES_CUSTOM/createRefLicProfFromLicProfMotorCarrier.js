@@ -134,6 +134,8 @@ function createRefLicProfFromLicProfMotorCarrier(){
 		editRefLicProfAttribute(rlpId,"CONTINUOUS CONTRACT",AInfo["Continuous Contract"])
 	if(AInfo["Portable Storage Units"] != null) 
 		editRefLicProfAttribute(rlpId,"PORTABLE STORAGE UNITS",AInfo["Portable Storage Units"]);
+	if(AInfo["Non Consent Towing"] != null) 
+		editRefLicProfAttribute(rlpId,"NON CONSENT TOWING",AInfo["Non Consent Towing"]);
 	
 	//Replace the trans LP on the app with the new Ref LP
 	removeCapLPs(capId);
