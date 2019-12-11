@@ -116,7 +116,7 @@ function createRefLicProfFromLicProfMotorCarrier(){
 		thisAttr = attrList[i]
 		name = ""+thisAttr.getAttributeName(); val="";
 		// Exclude fields updated by ASI
-		if( !matches(name,"AUTO TRANSPORT","HAZ MAT CARRIER", "HOUSEHOLD GOODS AUTHORITY", "PORTABLE STORAGE UNITS", "CONTINUOUS CONTRACT")) {
+		if( !matches(name,"AUTO TRANSPORT","HAZ MAT CARRIER", "HOUSEHOLD GOODS AUTHORITY", "PORTABLE STORAGE UNITS", "CONTINUOUS CONTRACT", "NON CONSENT TOWING")) {
 			val = ""+thisAttr.getAttributeValue()
 			editRefLicProfAttribute(rlpId,name,val == "null" ? null : val)
 		}
@@ -136,6 +136,7 @@ function createRefLicProfFromLicProfMotorCarrier(){
 		editRefLicProfAttribute(rlpId,"PORTABLE STORAGE UNITS",AInfo["Portable Storage Units"]);
 	if(AInfo["Non Consent Towing"] != null) 
 		editRefLicProfAttribute(rlpId,"NON CONSENT TOWING",AInfo["Non Consent Towing"]);
+
 	
 	//Replace the trans LP on the app with the new Ref LP
 	removeCapLPs(capId);

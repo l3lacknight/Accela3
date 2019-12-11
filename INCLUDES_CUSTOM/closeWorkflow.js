@@ -20,7 +20,7 @@ function closeWorkflow() { //optional capId
 	var wftask;
 	
 	for (i in wfObj) {
-   	fTask = wfObj[i];
+		fTask = wfObj[i];
 		wftask = fTask.getTaskDescription();
 		stepnumber = fTask.getStepNumber();
 		completeFlag = fTask.getCompleteFlag();

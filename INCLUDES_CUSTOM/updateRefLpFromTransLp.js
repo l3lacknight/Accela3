@@ -60,6 +60,7 @@ function updateRefLpFromTransLp(){
 		newLic.setMaskedSsn(licProfScriptModel.getMaskedSsn());
 		// newLic.setLicenseBoard(licProfScriptModel.getLicenseBoard());
 		newLic.setBusinessName2(licProfScriptModel.getBusName2());
+		newLic.setComment(licProfScriptModel.getComment());
 		
 		/* ASI to LP */
 		if(AInfo["Worker's Compensation Exempt"] != null) {
@@ -88,12 +89,12 @@ function updateRefLpFromTransLp(){
 		}
 
 		/* ASI to Ref LP Template */
-		editRefLicProfAttribute(rlpId,"AUTO TRANSPORT",AInfo["Auto Transport"])
-		editRefLicProfAttribute(rlpId,"HAZ MAT CARRIER",AInfo["Hazardous Material"])
-		editRefLicProfAttribute(rlpId,"HOUSEHOLD GOODS AUTHORITY",AInfo["Household Goods Authority"])
-		editRefLicProfAttribute(rlpId,"CONTINUOUS CONTRACT",AInfo["Continuous Contract"])
+		editRefLicProfAttribute(rlpId,"AUTO TRANSPORT",AInfo["Auto Transport"]);
+		editRefLicProfAttribute(rlpId,"HAZ MAT CARRIER",AInfo["Hazardous Material"]);
+		editRefLicProfAttribute(rlpId,"HOUSEHOLD GOODS AUTHORITY",AInfo["Household Goods Authority"]);
+		editRefLicProfAttribute(rlpId,"CONTINUOUS CONTRACT",AInfo["Continuous Contract"]);
 		editRefLicProfAttribute(rlpId,"PORTABLE STORAGE UNITS",AInfo["Portable Storage Units"]);
-			editRefLicProfAttribute(rlpId,"NON CONSENT TOWING",AInfo["Non Consent Towing"]);
+		editRefLicProfAttribute(rlpId,"NON CONSENT TOWING",AInfo["Non Consent Towing"]);
 		
 		newLic = getRefLicenseProf(existingCarrierNum);
 		modifyRefLPAndSubTran(capId, newLic)

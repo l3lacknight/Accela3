@@ -33,6 +33,7 @@ function updateCert(updateType){
 			cPhone = AInfo["Carrier Phone"];
 			cFax = AInfo["Carrier Fax"];
 			cEmail = AInfo["Carrier Email"];
+			logDebug("Declare Variables");
 			
 			/*if (addrLine1 && addrLine1 != "")*/ cLic.setAddress1(addrLine1);
 			/*if (addrLine2 && addrLine2 != "")*/ cLic.setAddress2(addrLine2); //address line 2 can be removed from the Certificate of Authority and Ref LP
@@ -43,7 +44,9 @@ function updateCert(updateType){
 			/*if (cFax && cFax != "")*/ cLic.setFax(cFax); //Fax number can be removed from the Certificate of Authority and Ref LP
 			/*if (cEmail && cEmail != "")*/ cLic.setEMailAddress(cEmail);
 			removeCapAddresses(pId);
+			logDebug("Remove Cap addresses");
 			copyAddresses(capId, pId);
+			logDebug("COPIED ADDRESS INFO SUCCESSFULLY");
 			break;
 		case "DISCONTINUANCE":
 			opType = AInfo["Operation Type"];
@@ -76,6 +79,7 @@ function updateCert(updateType){
 			cLic.setLicenseBoard(opType);
 			
 			break;
+		
 		case "TEMPDISCON":
 			opType = AInfo["Operation Type"];
 			autoTrans = AInfo["Auto Transport"];
