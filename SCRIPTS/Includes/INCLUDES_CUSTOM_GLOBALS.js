@@ -5,11 +5,11 @@ LICENSESTATE = "MI";
 //showDebug = false or 0 - no popups, no writing to bizserver log unless changed within script code itself in branches.
 //showDebug = true or 1 - pop-ups only
 //showDebug = 2 - log only
-//showDebug = 1 - pop-up and logging
+//showDebug = 3 - pop-up and logging
 //caution, logging levels cause that log to get BIG and scripting to run SLOW.
 
-if(matches(currentUserID, "ADMIN", "CGODWIN", "AUSTINV","HOWER")){//user names MUST be in ALL CAPS!
-	showDebug = 1; 
+if(matches(currentUserID, "ADMIN", "CGODWIN", "AUSTINV", "LLIU")){//user names MUST be in ALL CAPS!
+	showDebug = 3; 
 }else{
 	showDebug = false;
 }
@@ -19,8 +19,8 @@ if(matches(currentUserID, "ADMIN", "CGODWIN", "AUSTINV","HOWER")){//user names M
 //appropriate values are "SUPP","TEST","PROD","DEV","STAGE","CONFIG", etc...
 //ensure that sendNotificationWithEnvControl() function is updated accordingly
 environmentName = "SUPP";
-agencyEmailFrom = "MSP-CVED-MCS-Credentialing@michigan.gov"
-agencyReplyEmail = "no-reply@michigan.gov"
+agencyEmailFrom = "MSP-CVED-MCS-Credentialing@michigan.gov";
+agencyReplyEmail = "no-reply@michigan.gov";
 //suppEmailTarget = "";//this should be a distribution group
 //testEmailTarget = "";//this should be a distribution group for testers to check proper routing of scripted emails from the system
 acaURL = "https://acasupp3.accela.com/MSP";  //update/verify at restore

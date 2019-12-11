@@ -171,10 +171,14 @@ function completeRenewalOnWorkflow() {
 }
 
 function convertRenewalToReal() {
+	logDebug("BEGIN convertRenewalToReal() INCLUDES_LICENSES.js");
 	var capID = getCapId();
+	logDebug(capID);
 	var partialCapID = getPartialCapID(capID);
+	logDebug(partialCapID)
 	var result = aa.cap.isRenewalInProgess(capID);
 	if (result.getSuccess()) {
+		logDebug("INSIDE if result.getSuccess");
 		//1. Set B1PERMIT.B1_ACCESS_BY_ACA to "N" for partial CAP to not allow that it is searched by ACA user.
 		aa.cap.updateAccessByACA(capID, "N");			
 
@@ -196,24 +200,31 @@ function convertRenewalToReal() {
 }
 
 function prepareAppForRenewal() {
+	logDebug("BEGIN prepareAppForRenewal() INCLUDES_LICENSES.js");
 	var partialCapId = getIncompleteCapId();
+										logDebug("partialCapId:" + partialCapId);
 	var parentCapId = aa.env.getValue("ParentCapID");
-
-	logDebug("Parent Cap id from environment = " + parentCapId);
+										logDebug("Parent Cap id from environment = " + parentCapId);
+										
 	//1. Check to see if license is ready for renew
-	if (isRenewProcess(parentCapId, partialCapId)) {
-		logDebug("CAPID(" + parentCapId + ") is ready for renew. PartialCap (" + partialCapId + ")");
+	if (isRenewProcess(parentCapId, partialCapId)) 
+	{
+										logDebug("isRenewProcess(" + parentCapId + "," + partialCapId +") is successful");
+										logDebug("CAPID(" + parentCapId + ") is ready for renew. PartialCap (" + partialCapId + ")");
 		//2. Associate partial cap with parent CAP.
 		var result = aa.cap.createRenewalCap(parentCapId, partialCapId, true);
 		if (result.getSuccess()) {
+										logDebug("INSIDE if result.getSuccess");
 			//3. Copy key information from parent license to partial cap
 			copyKeyInfo(parentCapId, partialCapId);
+										logDebug("copyKeyInfo(" + parentCapId + "," + partialCapId +") is successful");
 			//4. Set B1PERMIT.B1_ACCESS_BY_ACA to "N" for partial CAP to not allow that it is searched by ACA user.
 			aa.cap.updateAccessByACA(partialCapId, "N");
 		}
-		else { logDebug("ERROR: Associate partial cap with parent CAP. " + result.getErrorMessage()); }
+		else { 							logDebug("ERROR: Associate partial cap with parent CAP. " + result.getErrorMessage()); }
 	}
-	else { logDebug("This is not renewal process. PartialCapId = " + partialCapId + " ParentCapId = " + parentCapId); }
+	else { 								logDebug("This is not renewal process. PartialCapId = " + partialCapId + " ParentCapId = " + parentCapId); }
+										logDebug("END prepareAppForRenewal() INCLUDES_LICENSES.js");
 }
 
 /******************************LIC PROF FUNCTIONS******************************************************/

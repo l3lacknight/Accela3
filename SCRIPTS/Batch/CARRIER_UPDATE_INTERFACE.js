@@ -225,12 +225,12 @@ function mainProcess() {
 		
 		licNumList = jsonObj[busLicNum]
 		if (typeof licNumList == "undefined") {
-			logDebug("**WARNING could not find any Reference Carriers with USDOT# " + busLicNum)
+			logDebug("\n**WARNING could not find any Reference Carriers with USDOT# " + busLicNum + "\n")
 			continue
 		}
 		for (n in licNumList) {
 			licNum = ""+licNumList[n]
-			logDebug("Looking for USDOT #: " + busLicNum + ", licNum: "+licNum)
+			logDebug("\n Looking for USDOT #: " + busLicNum + ", licNum: "+licNum + "\n")
 
 			/*if (!matches(""+refLicProfGetAttribute(licNum,LP_STATUS),"Active", "Temporarily Discontinued","null", "")) {
 				manualUpdates.push("Line: "+(parseInt(u)+1)+" **WARNING: Carrier " + licNum + " with USDOT# "+busLicNum+" not 'Active' or 'Temporarily Discontinued'; No updates made. Please update manually if necessary.")

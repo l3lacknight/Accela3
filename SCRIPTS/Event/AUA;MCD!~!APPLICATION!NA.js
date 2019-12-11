@@ -1,0 +1,1 @@
+logDebug ("This is a test");
