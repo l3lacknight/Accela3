@@ -2,6 +2,7 @@ function updateCert(updateType){
 	pId = getParent(); 
 	existingCarrierNum = pId.getCustomID();
 	var cLic = getRefLicenseProf(existingCarrierNum);
+	logDebug ("cLic " + cLic);
 	
 	if (!cLic) {
 		logDebug("Existing carrier " + existingCarrierNum + " not found"); 
