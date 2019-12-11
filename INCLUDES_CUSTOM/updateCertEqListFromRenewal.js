@@ -160,7 +160,7 @@ function updateCertEqListFromRenewal(){
 					logDebug(cFax);
 					logDebug(cEmail);
 					
-					/*if (addrLine1 && addrLine1 != "")*/ cLic.setAddress1(addrLine1);
+					/*test if (addrLine1 && addrLine1 != "")*/ cLic.setAddress1(addrLine1);
 					/*if (addrLine2 && addrLine2 != "")*/ cLic.setAddress2(addrLine2); //address line 2 can be removed from the Certificate of Authority and Ref LP
 					/*if (city && city!= "")*/ cLic.setCity(city);
 					/*if (st && st!="")*/ cLic.setState(st);
