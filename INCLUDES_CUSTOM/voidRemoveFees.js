@@ -55,6 +55,6 @@ function voidRemoveFees(vFeeCode){
 				}
 			
 				logDebug("This fee doesn't have INVOICED or NEW status");}
-		} // each matching fee
+		//} // each matching fee
 	}  // each  fee
 }  // function
