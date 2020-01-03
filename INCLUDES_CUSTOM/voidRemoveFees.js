@@ -20,7 +20,7 @@ function voidRemoveFees(vFeeCode){
 		logDebug("targetFee: " + targetFee);
 		logDebug("tFeeNum: " + tFeeNum);
 		logDebug("targetFee.code: " + targetFee.code);
-		if (targetFee.code.equals(vFeeCode)) { // only remove invoiced or new fees, however at this stage all AE fees should be invoiced.
+		//if (targetFee.code.equals(vFeeCode)) { // only remove invoiced or new fees, however at this stage all AE fees should be invoiced.
 			logDebug("Checking for INVOICED or NEW status");
 			if (targetFee.status == "INVOICED") {
 				var editResult = aa.finance.voidFeeItem(itemCap, targetFee.sequence);
