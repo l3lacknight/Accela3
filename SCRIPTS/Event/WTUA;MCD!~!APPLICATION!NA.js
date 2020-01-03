@@ -30,7 +30,7 @@ if(wfTask == "Certification" && wfStatus == "Issued"){
 }
 if (wfStatus == "Dismissed" || wfStatus == "Withdrawn"){
 	logDebug ("Dismissed or withdrawn app");
-	var success = voidRemoveFees(INTRAAPP);
+	var success = voidRemoveFees();
 	if(success){
 		logDebug("Fees removed successfully");
 	}
