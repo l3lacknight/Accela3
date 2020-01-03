@@ -28,3 +28,10 @@ if(wfTask == "Certification" && wfStatus == "Issued"){
 	
 	// test: committing via eclipse Lu 09/30
 }
+if (wfStatus == "Dismissed" || wfStatus == "Withdrawn"){
+	logDebug ("Dismissed or withdrawn app");
+	var success = voidRemoveFees();
+	if(success){
+		logDebug("Fees removed successfully");
+	}
+}
