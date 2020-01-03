@@ -3,6 +3,7 @@ function voidRemoveFees(vFeeCode){
 	var invoiceNbrArray = new Array();
 	var feeAllocationArray = new Array();
     var itemCap = capId;
+    logDebug("itemCap: " + itemCap);
     if (arguments.length > 1) {
         itemCap = arguments[1];
     }
