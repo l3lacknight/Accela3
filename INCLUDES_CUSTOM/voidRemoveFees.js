@@ -6,16 +6,22 @@ function voidRemoveFees(vFeeCode){
     logDebug("itemCap: " + itemCap);
     if (arguments.length > 1) {
         itemCap = arguments[1];
+        logDebug("itemCap: " + itemCap);
     }
  	// for each fee found
 	//  	  if the fee is "NEW" remove it
 	//  	  if the fee is "INVOICED" void it and invoice the void
 	//
 	var targetFees = loadFees(itemCap);
+	logDebug("targetFees: " + targetFees);
 
 	for (tFeeNum in targetFees) {
 		targetFee = targetFees[tFeeNum];
+		logDebug("targetFee: " + targetFee);
+		logDebug("tFeeNum: " + tFeeNum);
 		if (targetFee.code.equals(vFeeCode)) { // only remove invoiced or new fees, however at this stage all AE fees should be invoiced.
+			logDebug("vFeeCode: " + vFeeCode);
+			logDebug("Checking for INVOICED or NEW status");
 			if (targetFee.status == "INVOICED") {
 				var editResult = aa.finance.voidFeeItem(itemCap, targetFee.sequence);
 				if (editResult.getSuccess()){
@@ -47,7 +53,8 @@ function voidRemoveFees(vFeeCode){
 					logDebug( "**ERROR: removing fee item (" + targetFee.code + "): " + editResult.getErrorMessage());
 					return false;
 				}
-			}
+			
+				logDebug("This fee doesn't have INVOICED or NEW status");}
 		} // each matching fee
 	}  // each  fee
 }  // function
