@@ -166,7 +166,7 @@ var appType = appGroup + "/" + appTypeType + "/" + appSubtype + "/" + appCategor
 /*------------------------------------------------------------------------------------------------------/
 | <===========Main=Loop================>
 |
-/-------------------------------------------------------------------------------------------------------*/
+/-----------------------------------------------------------------------------------------------------*/
 
 logDebug("Start of Job");
 
@@ -220,8 +220,7 @@ function mainProcess(){
 								
 								if(sendEmail){
 									var thisAltId = thisCap.getAltID();
-									logDebug(br+thisAltId+": "+thisCapType);
-									logDebug(br+"The following carrier needs to be sent an e-mail"+br);
+									logDebug(br+"The following carrier needs to be sent an e-mail: CVED#"+" "+thisAltId+br);
 									capCount++;
 									
 									/* if(newExpStatus.length > 0 && newAppStatus.length == 0){// update expiration status only
@@ -270,7 +269,10 @@ function mainProcess(){
 										editLicProfAttribute(thisCapModel,thisAltId,"INTRASTATE AUTHORITY STATUS DA",dateAdd(null,0));
 									} */
 									
-								}else{ capFilterStatus++; continue; }
+								}else{ 
+									var thisAltId = thisCap.getAltID();
+									logDebug(br+"This carrier was not sent an email and are about to expire: CVED#"+" "+thisAltId+br);
+									capFilterStatus++; continue; }
 							}else{ capFilterType++; continue; }
 						}else{ capFilterType++; continue; }
 					}else{ capFilterType++; continue; }
